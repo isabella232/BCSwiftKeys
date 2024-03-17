@@ -57,7 +57,7 @@ extension RSAPrivateKey: EncryptionPrivateKey {
 }
 
 extension RSAPrivateKey: SigningPrivateKey {
-    public func sign(message: Data, with parameters: ()) throws -> RSASignature {
+    public func sign(message: Data, with parameters: ()) throws -> RSASignature<Traits> {
         try requirePermissions(.sign)
         todo()
     }
@@ -70,7 +70,7 @@ extension RSAPrivateKey: EncryptionPublicKey {
 }
 
 extension RSAPrivateKey: SigningPublicKey {
-    public func verify(message: Data, signature: RSASignature) throws -> Bool {
+    public func verify(message: Data, signature: RSASignature<Traits>) throws -> Bool {
         try publicKey.verify(message: message, signature: signature)
     }
 }

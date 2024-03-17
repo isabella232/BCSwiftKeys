@@ -24,7 +24,7 @@ where Traits: RSATraits
 }
 
 extension RSAPublicKey: SigningPublicKey {
-    public func verify(message: Data, signature: RSASignature) throws -> Bool {
+    public func verify(message: Data, signature: RSASignature<Traits>) throws -> Bool {
         try requirePermissions(.sign)
         todo()
     }
